@@ -12,6 +12,7 @@ class Bot:
     course = "INFO3435"
     def __init__(self,field,other):
         
+        print(other["dpath"])
         options = webdriver.ChromeOptions()
         options.add_experimental_option('prefs', {
         "download.default_directory": other["dpath"], #Change default directory for downloads
@@ -105,7 +106,7 @@ def clicked(field,other):
     field_texts = list(map(lambda x: x.get(),list(entries.values()))) + list(other.values())
     if all(field_texts):
         print("valid")
-        automate = Bot(field) 
+        automate = Bot(field,other) 
         automate.search()
 
     print("invalid")
