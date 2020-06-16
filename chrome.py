@@ -12,10 +12,10 @@ class Bot:
     course = "INFO3435"
     def __init__(self,field,other):
         
-        print(other["dpath"])
+        print(repr(other["dpath"]))
         options = webdriver.ChromeOptions()
         options.add_experimental_option('prefs', {
-        "download.default_directory": other["dpath"], #Change default directory for downloads
+        "download.default_directory": repr(other["dpath"]), #Change default directory for downloads
         "download.prompt_for_download": False, #To auto download the file
         "download.directory_upgrade": True,
         "plugins.always_open_pdf_externally": True #It will not show PDF directly in chrome
@@ -92,7 +92,7 @@ a1 = Entry(window,width=32)
 a1.grid(row = 0,column = 1)
 entries["username"] = a1
 
-b1 = Entry(window,width=32)
+b1 = Entry(window,width=32,show="*")
 b1.grid(row = 1,column = 1)
 entries["passw"] = b1
 
